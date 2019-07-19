@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-class HelloWorldController < Roda
-  route do |r|
-    r.root do
-      response.status = 201
-      response.write("HelloWorld")
+require_relative "application_controller"
 
-      response.finish
-    end
+class HelloWorldController < ApplicationController
+  root do
+    response.status = 201
+    response.write("HelloWorld")
+
+    response.finish
   end
 end
