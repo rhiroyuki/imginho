@@ -3,7 +3,7 @@
 class Routes < Roda
   route do |r|
     r.root do
-      "Hello World"
+      r.run HelloWorldController
     end
   end
 end

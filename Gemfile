@@ -13,4 +13,9 @@ gem "roda"
 
 group :development, :test do
   gem "dotenv"
+  gem "rspec"
+end
+
+group :test do
+  gem "rack-test"
 end
