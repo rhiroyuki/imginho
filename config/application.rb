@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-Bundler.require(:default, ENV["APP_ENV"] || :development)
-
 module Application
   class Project
     class << self
