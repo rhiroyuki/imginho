@@ -1,0 +1,1 @@
+web: bundle exec rerun --ignore '{spec/**/*,.rspec,bin/**/*}' --no-notify --background "puma --config config/puma.rb"

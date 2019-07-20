@@ -19,6 +19,11 @@ group :development, :test do
   gem "rspec"
 end
 
+group :development do
+  gem "foreman"
+  gem "rerun"
+end
+
 group :test do
   gem "rack-test"
 end
