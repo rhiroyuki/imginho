@@ -1,28 +1,23 @@
 # frozen_string_literal: true
 
 module Application
-  class Project
-    class << self
-      def env
-        raise "Invalid environment: #{ENV["APP_ENV"]}. Valids are {#{valid_envs.join(", ")}}." unless env_valid?
+  class << self
+    def env
+      raise "Invalid environment: #{ENV["APP_ENV"]}. Valids are {#{valid_envs.join(", ")}}." unless env_valid?
 
-        @env ||= ENV.fetch("APP_ENV").to_sym || :development
-      end
+      @env ||= ENV.fetch("APP_ENV").to_sym || :development
+    end
 
-      private
+    private
 
-      def env_valid?
-        File.exist?("config/environments/#{ENV.fetch("APP_ENV")}.rb")
-      end
+    def env_valid?
+      File.exist?("config/environments/#{ENV.fetch("APP_ENV")}.rb")
+    end
 
-      def valid_envs
-        files = Dir.glob("environments/**/*.rb", base: __dir__)
-        environments = files.map { |file| File.basename(file, ".*") }
+    def valid_envs
+      return ["none"] unless envs.size > 0
 
-        return ["none"] unless environments.size > 0
-
-        environments
-      end
+      envs
     end
   end
 end

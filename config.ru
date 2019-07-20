@@ -2,4 +2,4 @@
 
 require_relative "boot"
 
-run Routes
+run Routes.freeze.app
