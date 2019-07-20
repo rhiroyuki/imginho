@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <title></title>
+    <%= assets(:css) %>
   </head>
   <body>
     <%= yield %>
+
+    <%= assets(:js) %>
   </body>
 </html>

@@ -17,4 +17,6 @@ class ApplicationController < Roda
 
   # rendering/view plugins
   plugin :render, engine: "html.erb", layout: :application_layout
+  plugin :assets, css: "application.scss.erb", js: "application.js.erb", public: "../public"
+  compile_assets if Application.production?
 end

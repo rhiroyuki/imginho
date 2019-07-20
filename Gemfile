@@ -10,7 +10,9 @@ gem "puma"
 gem "pry"
 gem "rake"
 gem "roda"
+
 gem "tilt"
+gem "sassc"
 
 group :development, :test do
   gem "dotenv"
