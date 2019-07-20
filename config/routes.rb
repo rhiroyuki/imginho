@@ -27,3 +27,5 @@ class Routes < Roda
     "Error #{response.status}: #{Rack::Utils::HTTP_STATUS_CODES[response.status]}"
   end
 end
+
+Application::Web.routes = Routes.freeze

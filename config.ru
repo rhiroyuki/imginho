@@ -2,4 +2,4 @@
 
 require_relative "boot"
 
-run Routes.freeze.app
+run Application::Web.routes.freeze.app

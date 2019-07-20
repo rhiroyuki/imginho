@@ -4,6 +4,6 @@ module WebApplicationHelper
   include Rack::Test::Methods
 
   def app
-    Routes
+    Application::Web.routes.freeze.app
   end
 end
