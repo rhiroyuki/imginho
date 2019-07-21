@@ -23,5 +23,5 @@ RSpec.configure do |config|
   config.warnings = true
   config.order = :random
 
-  config.include WebApplicationHelper, type: :controller
+  config.include WebApplicationHelper
 end

@@ -25,5 +25,7 @@ group :development do
 end
 
 group :test do
+  gem "capybara"
   gem "rack-test"
+  gem "selenium-webdriver"
 end
