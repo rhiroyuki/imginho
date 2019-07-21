@@ -1,30 +1,18 @@
 # frozen_string_literal: true
 
-class Routes < Roda
-  opts[:root] = "app"
+class Routes < Application::Routes
+  plugin :common_logger, Application::Logger.logger
 
   route do |r|
     r.assets
 
     r.get ["", true] do
-      r.run HelloWorldController
-    end
-
-    r.is "world" do
-      "world"
+      view "homepage"
     end
 
     r.is "about" do
       r.run AboutController
     end
-  end
-
-  plugin :assets, css: "application.scss.erb", js: "application.js.erb", public: "../public"
-  compile_assets if Application.production?
-  plugin :not_found do
-    response.status = 404
-
-    "Error #{response.status}: #{Rack::Utils::HTTP_STATUS_CODES[response.status]}"
   end
 end
 

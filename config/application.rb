@@ -20,4 +20,31 @@ module Application
       envs
     end
   end
+
+  class Routes < Roda
+    opts[:root] = "app"
+
+    plugin :class_level_routing
+    plugin :empty_root
+    plugin :slash_path_empty
+
+    plugin :render, engine: "html.erb", layout: :application_layout
+
+    plugin :assets, css: "application.scss.erb", js: "application.js.erb", public: "../public"
+    compile_assets if Application.env == :production
+
+    plugin :error_handler do |error|
+      if Application.production?
+        "Something went wrong"
+      else
+        "OH NO: #{error}"
+      end
+    end
+
+    plugin :not_found do
+      response.status = 404
+
+      "Error #{response.status}: #{Rack::Utils::HTTP_STATUS_CODES[response.status]}"
+    end
+  end
 end
