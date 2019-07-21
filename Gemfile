@@ -17,6 +17,7 @@ gem "sassc"
 
 group :production do
   gem "newrelic_rpm"
+  gem "librato-rack"
 end
 
 group :development, :test do
