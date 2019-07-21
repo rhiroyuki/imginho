@@ -12,6 +12,13 @@ Dir.glob("config/initializers/**/*.rb", base: __dir__).each { |f| require_relati
 
 require_relative "config/environment"
 
-Dir.glob("app/**/*.rb", base: __dir__).each { |f| require_relative f }
+loader = Zeitwerk::Loader.new
+app_path = File.expand_path(__dir__)
+
+Dir.glob("app/**").select { |f| File.directory? f }.each do |dir|
+  loader.push_dir([app_path, dir].join("/"))
+end
+
+loader.setup
 
 require_relative "config/routes"

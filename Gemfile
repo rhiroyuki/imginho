@@ -10,6 +10,7 @@ gem "puma"
 gem "pry"
 gem "rake"
 gem "roda"
+gem "zeitwerk"
 
 gem "tilt"
 gem "sassc"

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Routes < Application::Routes
-  plugin :common_logger, Application::Logger.logger
+  plugin :common_logger, ::Application::Logger.logger
 
   route do |r|
     r.assets
@@ -11,7 +11,7 @@ class Routes < Application::Routes
     end
 
     r.is "about" do
-      r.run AboutController
+      r.run ::AboutController
     end
   end
 end
