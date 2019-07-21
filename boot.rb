@@ -12,6 +12,10 @@ Dir.glob("config/initializers/**/*.rb", base: __dir__).each { |f| require_relati
 
 require_relative "config/environment"
 
+if Application.production?
+  require "newrelic_rpm"
+end
+
 loader = Zeitwerk::Loader.new
 app_path = File.expand_path(__dir__)
 

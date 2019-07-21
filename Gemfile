@@ -15,6 +15,10 @@ gem "zeitwerk"
 gem "tilt"
 gem "sassc"
 
+group :production do
+  gem "newrelic_rpm"
+end
+
 group :development, :test do
   gem "dotenv"
   gem "rspec"

@@ -26,6 +26,7 @@ GEM
     method_source (0.9.2)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
+    newrelic_rpm (6.4.0.356)
     nio4r (2.4.0)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
@@ -81,6 +82,7 @@ DEPENDENCIES
   capybara
   dotenv
   foreman
+  newrelic_rpm
   pry
   puma
   rack-test
