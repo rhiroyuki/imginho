@@ -14,6 +14,7 @@ gem "pry"
 gem "rake"
 gem "zeitwerk"
 
+gem "forme"
 gem "tilt"
 gem "sassc"
 

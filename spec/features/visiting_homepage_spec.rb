@@ -7,7 +7,8 @@ feature "as a user, visiting the homepage" do
     scenario "user is able to see the title content" do
       visit "/"
 
-      expect(page).to have_selector("h2", text: "URL Shortner")
+      expect(page).to have_selector("h2", text: "Imginho")
+      expect(page).to have_selector("p", text: "Simple image store")
     end
   end
 end

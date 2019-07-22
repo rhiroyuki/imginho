@@ -1,1 +1,8 @@
-<h2>URL Shortner</h2>
+<h2>Imginho</h2>
+<p>Simple image store</p>
+
+<%= Forme.form(action: '/upload', method: :post, enctype: "multipart/form-data") do |f|
+  f.input(:text, name: 'description', label: 'description')
+  f.input(:file, name: 'file', accept: 'image/*', label: 'file')
+  f.button(value: 'Upload Image')
+end %>

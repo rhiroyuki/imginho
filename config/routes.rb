@@ -10,6 +10,11 @@ class Routes < Application::Routes
       view "homepage"
     end
 
+    r.post "upload" do
+      # r.run ::FileUploadsController
+      binding.pry
+    end
+
     r.is "about" do
       r.run ::AboutController
     end
