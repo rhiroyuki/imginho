@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require "sequel"
+require "yaml"
+
+require "bundler/setup"
+
+Bundler.require(:default, ENV["APP_ENV"] || :development)
+
+require "dotenv/load" if defined?(Dotenv)
+
+Sequel.extension :migration
+
+config = YAML.safe_load(ERB.new(File.read("config/database.yml")).result)
+
+DB = Sequel.connect(config[ENV["APP_ENV"]], logger: Logger.new($stderr))
+Sequel::Migrator.run(DB, "db/migrate")

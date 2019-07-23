@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require "sequel"
+require "yaml"
+
+require "bundler/setup"
+
+Bundler.require(:default, ENV["APP_ENV"] || :development)
+
+require "dotenv/load" if defined?(Dotenv)
+
+config = YAML.safe_load(ERB.new(File.read("config/database.yml")).result)
+
+Sequel.connect(config[ENV["APP_ENV"]].merge("database" => "postgres"), logger: Logger.new($stderr)) do |db|
+  db.execute("CREATE DATABASE #{config[ENV["APP_ENV"]]["database"]}")
+end
+
+puts "Database #{config[ENV["APP_ENV"]]["database"]} created"

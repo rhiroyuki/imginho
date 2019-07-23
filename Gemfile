@@ -6,10 +6,12 @@ source "https://rubygems.org"
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}"}
 
+gem "roda"
+gem "sequel"
+gem "pg"
 gem "puma"
 gem "pry"
 gem "rake"
-gem "roda"
 gem "zeitwerk"
 
 gem "tilt"
