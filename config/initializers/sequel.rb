@@ -17,4 +17,4 @@ begin
   # DB = Sequel.connect(config[Application.env.to_s])
 end
 
-Sequel::Migrator.check_current(DB, 'db/migrate')
+# Sequel::Migrator.check_current(DB, 'db/migrate')

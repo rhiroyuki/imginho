@@ -25,7 +25,22 @@ namespace :generate do
 
     camelized_migration_name = args[:migration_name].split("_").collect(&:capitalize).join
 
-    File.open("db/migrate/#{filepath}", "w+") { |f| f.write("class #{camelized_migration_name}Migration < Sequel::Migration\nend") }
+    migration_def = <<~RUBY.chomp
+      # frozen_string_literal: true
+
+      Sequel.migration do
+        def up
+        end
+
+        def down
+        end
+      end
+    RUBY
+
+    File.open("db/migrate/#{filepath}", "w+") do |f|
+      f.write(migration_def)
+    end
+
     puts "Migration file created: db/migrate/#{filepath}"
   end
 end

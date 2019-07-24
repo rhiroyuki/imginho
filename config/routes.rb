@@ -7,12 +7,13 @@ class Routes < Application::Routes
     r.assets
 
     r.get ["", true] do
+      @photo = Photo.new
       view "homepage"
     end
 
     r.post "upload" do
-      # r.run ::FileUploadsController
-      binding.pry
+      Photo.create(r.params.slice("image", "description"))
+      "oi"
     end
 
     r.is "about" do

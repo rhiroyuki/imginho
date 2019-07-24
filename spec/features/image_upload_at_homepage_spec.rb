@@ -7,11 +7,11 @@ feature "image upload at homepage" do
     visit "/"
 
     within("form") do
+      attach_file("image", "spec/fixtures/nature.jpg")
       fill_in "description", with: "Nature in Portugal"
-      attach_file("file", "spec/fixtures/nature.jpg")
-    end
 
-    click_button("Upload Image")
+      click_button("Upload Image")
+    end
 
     expect(page).to have_content("Upload done")
   end

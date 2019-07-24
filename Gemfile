@@ -12,6 +12,8 @@ gem "pg"
 gem "puma"
 gem "pry"
 gem "rake"
+gem "image_processing", "~> 1.2"
+gem "shrine"
 gem "zeitwerk"
 
 gem "forme"

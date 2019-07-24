@@ -2,7 +2,8 @@
 <p>Simple image store</p>
 
 <%= Forme.form(action: '/upload', method: :post, enctype: "multipart/form-data") do |f|
-  f.input(:text, name: 'description', label: 'description')
-  f.input(:file, name: 'file', accept: 'image/*', label: 'file')
+  f.input(:hidden, value: @photo.cached_image_data)
+  f.input(:file, name: :image, accept: 'image/*', label: 'image')
+  f.input(:text, name: :description, label: 'description')
   f.button(value: 'Upload Image')
 end %>
